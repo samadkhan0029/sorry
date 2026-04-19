@@ -1,9 +1,9 @@
 {
-  "name": "romantic-envelope-react",
+  "name": "sorry",
   "version": "1.0.0",
   "description": "A romantic-themed envelope website built with React",
   "main": "index.js",
-  "homepage": "https://samadkhan029.github.io/romantic-envelope",
+  "homepage": "https://samadkhan029.github.io/sorry",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
