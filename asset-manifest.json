@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/romantic-envelope/static/css/main.7e218480.css",
-    "main.js": "/romantic-envelope/static/js/main.b1c79d25.js",
-    "index.html": "/romantic-envelope/index.html",
-    "main.7e218480.css.map": "/romantic-envelope/static/css/main.7e218480.css.map",
-    "main.b1c79d25.js.map": "/romantic-envelope/static/js/main.b1c79d25.js.map"
+    "main.css": "/sorry/static/css/main.7e218480.css",
+    "main.js": "/sorry/static/js/main.b1c79d25.js",
+    "index.html": "/sorry/index.html",
+    "main.7e218480.css.map": "/sorry/static/css/main.7e218480.css.map",
+    "main.b1c79d25.js.map": "/sorry/static/js/main.b1c79d25.js.map"
   },
   "entrypoints": [
     "static/css/main.7e218480.css",
