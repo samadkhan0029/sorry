@@ -1,0 +1,238 @@
+/* Letter */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 280px;
+    height: 340px;
+    background: 
+        linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #f0f0f0 100%),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(200, 200, 200, 0.05) 2px, rgba(200, 200, 200, 0.05) 4px),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(200, 200, 200, 0.05) 2px, rgba(200, 200, 200, 0.05) 4px);
+    background-blend-mode: multiply;
+    border-radius: 2px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(200, 200, 200, 0.15) 24px, rgba(200, 200, 200, 0.15) 25px),
+        repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(200, 200, 200, 0.15) 24px, rgba(200, 200, 200, 0.15) 25px);
+    pointer-events: none;
+}
+
+.letter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.02) 0%, rgba(255, 192, 203, 0.01) 100%);
+    pointer-events: none;
+}
+
+.letter.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    animation: slideOut 0.8s ease 0.3s forwards;
+}
+
+@keyframes slideOut {
+    0% { 
+        transform: translate(-50%, -50%) scale(0.8) translateY(0) rotateZ(-2deg);
+        filter: blur(1px);
+    }
+    50% {
+        filter: blur(0px);
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1) translateY(-25px) rotateZ(0deg);
+        filter: blur(0px);
+    }
+}
+
+/* Letter content */
+.letter-content {
+    padding: 2rem;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 107, 157, 0.3) transparent;
+}
+
+.letter-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 157, 0.3);
+    border-radius: 3px;
+}
+
+.letter-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 107, 157, 0.5);
+}
+
+.letter-header,
+.letter-footer {
+    text-align: center;
+}
+
+.letter-date {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+    font-weight: 400;
+    text-align: right;
+}
+
+.letter-salutation {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+    font-weight: 700;
+}
+
+.letter-body {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-line {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: var(--delay);
+    font-weight: 400;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
+    transform-origin: left center;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 1.8s;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.letter-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 2.0s;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px) rotateZ(-1deg);
+        filter: blur(0.5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateZ(0deg);
+        filter: blur(0px);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .letter {
+        width: 240px;
+        height: 300px;
+    }
+    
+    .letter-content {
+        padding: 1.5rem;
+    }
+    
+    .letter-line {
+        font-size: 1rem;
+    }
+    
+    .letter-salutation {
+        font-size: 1.3rem;
+    }
+    
+    .letter-signature {
+        font-size: 1.1rem;
+    }
+    
+    .letter-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter {
+        width: 200px;
+        height: 260px;
+    }
+    
+    .letter-content {
+        padding: 1rem;
+    }
+    
+    .letter-line {
+        font-size: 0.9rem;
+    }
+    
+    .letter-salutation {
+        font-size: 1.1rem;
+    }
+    
+    .letter-signature {
+        font-size: 1rem;
+    }
+    
+    .letter-name {
+        font-size: 1.1rem;
+    }
+}
